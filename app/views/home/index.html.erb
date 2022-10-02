@@ -1,0 +1,7 @@
+<h1> Fretes & Entregas </h1>
+
+<%= form_with(url: root_url, method: :get) do |f| %>
+  <%= f.label :query, 'Consultar entregas' %>:
+  <%= f.text_field :query %>
+  <%= f.submit 'Buscar'%>
+<% end %>
