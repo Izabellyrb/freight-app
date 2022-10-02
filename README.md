@@ -2,14 +2,17 @@
 
 Aplicação que gerencia a frota de entrega para um e-commerce com alcance nacional (projeto TreinaDev 9).
 
-### Versão do Ruby/Rails
+#### Versão do Ruby/Rails
 
 ruby 3.0.2
 Rails 7.0.4
 
-### Gems
+#### Gems
 
-### Database initialization
+#### Database initialization
+
+#### Acompanhamento das tarefas do projeto
+https://github.com/users/Izabellyrb/projects/1/views/1
 
 
 <h4 align="center">
