@@ -1,7 +1,7 @@
-<h1> Fretes & Entregas </h1>
+<h2> Rastreamento de entregas </h2>
 
 <%= form_with(url: root_url, method: :get) do |f| %>
-  <%= f.label :query, 'Consultar entregas' %>:
+  <%= f.label :query, 'Código de rastreamento:' %>:
   <%= f.text_field :query %>
   <%= f.submit 'Buscar'%>
 <% end %>

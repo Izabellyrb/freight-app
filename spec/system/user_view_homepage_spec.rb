@@ -19,7 +19,7 @@ describe 'usuario visita tela inicial' do
     visit root_url
 
     # Assert
-    expect(page).to have_field('Consultar entregas')
+    expect(page).to have_field('Código de rastreamento')
     expect(page).to have_button('Buscar')
   end
 end

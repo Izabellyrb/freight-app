@@ -10,6 +10,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1> Fretes & Entregas </h1>
+      <nav>
+        <%= link_to 'Acessar área de colaboradores', new_user_session_url %> |
+        <%= link_to 'Rastreamento de entregas', root_url %> | 
+
+        <!-- login -->
+        <% if user_signed_in? %>
+          <p> Olá, <%= current_user.name%>!</p>
+          <%= button_to 'Sair', destroy_user_session_url, method: :delete %> 
+        <% end %>
+
+      </nav>
+    </header>
+    <main>
+      <div>
+        <%= flash[:notice]%>
+        <%= flash[:alert]%> 
+      </div>
+    </main>
+      <%= yield %>
   </body>
 </html>
