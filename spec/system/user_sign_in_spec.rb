@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário se autentica' do
   it 'com sucesso' do
-    admin_user = User.create!(name: 'Camila Souza', email:'camila.souza@sistemadefrete.com.br', password: 'password')
+    user = User.create!(name: 'Camila Souza', email:'camila.souza@sistemadefrete.com.br', password: 'password')
 
     visit root_url
     click_on 'Acessar área de colaboradores'
@@ -16,7 +16,7 @@ describe 'Usuário se autentica' do
   end
 
   it 'e faz logout com sucesso' do
-    admin_user = User.create!(name: 'Camila Souza', email:'camila.souza@sistemadefrete.com.br', password: 'password')
+    user = User.create!(name: 'Camila Souza', email:'camila.souza@sistemadefrete.com.br', password: 'password')
 
     visit root_url
     click_on 'Acessar área de colaboradores'

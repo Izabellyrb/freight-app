@@ -1,0 +1,14 @@
+<h2>Modalidades de transporte</h2>
+
+<p> Os tipos de envio disponíveis são: </p>
+
+<section>
+  <% @transports.each do |t| %>
+    <ul>
+      <li> <%= link_to t.name, t %> </li>
+    </ul>
+  <% end %>
+
+  <%= link_to 'Voltar', root_url %>
+</section>
+
