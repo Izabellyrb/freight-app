@@ -1,14 +1,15 @@
 pt-BR:
+  enabled: "Habilitada"
+  disabled: "Desabilitada"
   activerecord:
     models:
-      supplier: "Fornecedor" 
+      transport: "Modalidades de tranporte" 
     attributes:
-      supplier: 
-        corporate_name: "Razão social"
-        brand_name: "Nome fantasia"
-        registration_number: "CNPJ"
-        city: "Cidade"
-        address: "Endereço" 
-        state: "Estado"
-        email: "Email"
-        phone: "Telefone"
+      transport:
+        name: "Nome"
+        min_distance: "Distancia mínima"
+        max_distance: "Distancia máxima"
+        min_weight: "Peso mínimo"
+        max_weight: "Peso máximo"
+        fee: "Taxa fixa de entrega"
+

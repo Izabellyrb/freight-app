@@ -1,0 +1,39 @@
+<%# new e edit %> 
+
+<% if(@transport.errors.any?) %>
+    <p>Verifique os erros abaixo:</p>
+    <ul> 
+        <% @transport.errors.full_messages.each do |msg| %> 
+            <li> <%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with(model: @transport) do |f| %>
+  <div> 
+    <%= f.label :name %>:
+    <%= f.text_field :name %>
+  </div>
+  <div> 
+    <%= f.label :min_distance %>:
+    <%= f.text_field :min_distance %>
+  </div>
+  <div> 
+    <%= f.label :max_distance %>:
+    <%= f.text_field :max_distance %>
+  </div>
+  <div> 
+    <%= f.label :min_weight %>:
+    <%= f.text_field :min_weight %>
+  </div>
+  <div> 
+    <%= f.label :max_weight %>:
+    <%= f.text_field :max_weight %>
+  </div>
+  <div> 
+    <%= f.label :fee %>:
+    <%= f.text_field :fee %>
+  </div>
+  
+  <%= f.submit 'Salvar', class: "btn btn-bd-primary"%>
+<% end %>

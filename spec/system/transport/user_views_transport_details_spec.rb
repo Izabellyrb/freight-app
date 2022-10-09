@@ -36,17 +36,4 @@ describe 'Usuário vê detalhes de uma modalidade de transporte' do
     expect(current_url).to eq(transports_url)
     expect(page).to have_content('Fretes & Entregas')
   end
-
-  
-  # it 'e cadastra novas modalidades' do
-  #   user = User.create!(name: 'Camila Souza', email:'camila.souza@sistemadefrete.com.br', password: 'password') 
-    
-  #   login_as(user)
-  #   visit root_url
-  #   click_on 'Modalidades de transporte'
-  #   click_on 'Voltar'
-
-  #   expect(current_url).to eq(root_url)
-  #   expect(page).to have_content('Fretes & Entregas')
-  # end
 end

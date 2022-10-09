@@ -1,0 +1,28 @@
+body {
+  background-color: #E6D5B8;
+}
+
+/* links */
+a {
+  text-decoration: none;
+  color: #E45826;
+}
+
+a:hover {
+  color: #913919;
+}
+
+/* buttons */
+.btn-bd-primary {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: #000;
+  --bs-btn-bg: #E45826;
+  --bs-btn-border-color: #E45826;
+  --bs-btn-border-radius: .3rem;
+  --bs-btn-hover-bg: #913919;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-padding-y: .15rem;
+  --bs-btn-padding-x: .5rem;
+}
+
+
