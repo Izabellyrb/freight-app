@@ -1,0 +1,15 @@
+pt-BR:
+  available: 'Disponível'
+  operating: 'Em operação'
+  maintenance: 'Em manutenção'
+  activerecord:
+    models:
+      vehicle: "Gestão de frota" 
+    attributes:
+      vehicle:
+        plate: 'Placa de identificação' 
+        make: 'Marca' 
+        model: 'Modelo'
+        year: "Ano"
+        max_load_capacity: "Capacidade máx de carga"
+        status: "Situação atual"

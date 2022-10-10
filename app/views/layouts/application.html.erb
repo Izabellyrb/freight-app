@@ -10,20 +10,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class = "container">
     <header>
       <h1> Fretes & Entregas </h1>
-      <nav>
+      <nav class='d-flex justify-content-around'>
         <%= link_to 'Acessar área de colaboradores', new_user_session_url %> |
         <%= link_to 'Rastreamento de entregas', root_url %> | 
         <%= link_to 'Modalidades de transporte', transports_url %> | 
+        <%= link_to 'Gestão de frota', vehicles_url %> | 
 
         <!-- login -->
-        <% if user_signed_in? %>
-          <p> Olá, <%= current_user.name%>!</p>
-          <%= button_to 'Sair', destroy_user_session_url, method: :delete, class: "btn btn-bd-primary"%> 
-        <% end %>
-
+          <% if user_signed_in? %>
+            <p> Olá, <%= current_user.name%>!</p>
+            <%= button_to 'Sair', destroy_user_session_url, method: :delete, class:"btn btn-link"%> 
+          <% end %>
       </nav>
     </header>
     <main>
@@ -32,6 +32,6 @@
         <%= flash[:alert]%> 
       </div>
     </main>
-      <%= yield %>
+        <%= yield %>
   </body>
 </html>

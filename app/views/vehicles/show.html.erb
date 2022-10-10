@@ -1,0 +1,27 @@
+<h2>Detalhes do veículo</h2>
+
+<section>
+  <ul>
+    <li><%= Vehicle.human_attribute_name(:plate) %>: <%= @vehicle.plate %> 
+    </li>
+    <li>
+      <%= Vehicle.human_attribute_name(:make) %>: <%= @vehicle.make %> 
+    </li>
+    <li>
+      <%= Vehicle.human_attribute_name(:model) %>: <%= @vehicle.model %> 
+    </li>
+    <li>
+      <%= Vehicle.human_attribute_name(:year) %>: <%= @vehicle.year %> 
+    </li>
+    <li>
+      <%= Vehicle.human_attribute_name(:max_load_capacity) %>: <%= @vehicle.max_load_capacity %> 
+    </li>
+    <li>
+      <%= Vehicle.human_attribute_name(:status) %>: <%= I18n.translate(@vehicle.status) %>
+    </li>
+  </ul>
+
+  <%= link_to 'Editar', edit_vehicle_url, class: "btn btn-bd-primary" %>
+  <%= link_to 'Voltar', vehicles_url, class: "btn btn-bd-primary" %> 
+</section>
+

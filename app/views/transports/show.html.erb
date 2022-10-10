@@ -19,13 +19,15 @@
     </tr>
   </tbody>
 </table>
-<% if @transport.enabled? %>
-  <%= button_to 'Desabilitar', disabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
-  <% else %>
-  <%= button_to 'Habilitar', enabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
-<% end %>
 
+<div class='d-flex justify-content-start'>
+  <% if @transport.enabled? %>
+    <%= button_to 'Desabilitar', disabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
+    <% else %>
+    <%= button_to 'Habilitar', enabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
+  <% end %>
 
-<%= link_to 'Editar', edit_transport_url, class: "btn btn-bd-primary"%>
-<%= link_to 'Voltar', transports_url, class: "btn btn-bd-primary"%>
+  <%= link_to 'Editar', edit_transport_url, class: "btn btn-bd-primary"%>
+  <%= link_to 'Voltar', transports_url, class: "btn btn-bd-primary"%>
+</div>
 

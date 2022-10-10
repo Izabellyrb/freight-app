@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     post 'disabled', on: :member
     post 'enabled', on: :member
   end
+  resources :vehicles, only: [:index, :show, :new, :create, :edit, :update]
 
 end
