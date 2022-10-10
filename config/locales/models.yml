@@ -1,6 +1,0 @@
-pt-BR:
-  activerecord:
-    models: #meu modulo
-      user: # modulo
-    attributes:
-      user: 

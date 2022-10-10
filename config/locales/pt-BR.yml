@@ -1,0 +1,5 @@
+pt-BR:
+  query: 'Buscar'
+  found:
+    one: 'encontrado'
+    other: 'encontrados'

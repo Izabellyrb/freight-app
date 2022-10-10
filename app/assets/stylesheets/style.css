@@ -2,6 +2,10 @@ body {
   background-color: #E6D5B8;
 }
 
+main {
+  margin-bottom: 1rem;
+}
+
 /* links */
 a {
   text-decoration: none;
@@ -26,5 +30,30 @@ a:hover {
   margin: .5rem
 }
 
+.btn-bd-primary2 {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: #000;
+  --bs-btn-bg: #F0A500;
+  --bs-btn-border-color: #F0A500;
+  --bs-btn-border-radius: .3rem;
+  --bs-btn-hover-bg: #b87f03;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-padding-y: .15rem;
+  --bs-btn-padding-x: .5rem;
+  margin: .5rem
+}
 
+/* alinhamento de buttons */
+.d-flex.justify-content-start {
+  text-align: center
+}
 
+/*alerts*/
+
+.warning {
+  font-weight: 600;
+  color: rgb(168, 130, 5);
+  background-color: #f3e77b;
+  border-radius: .3rem;
+  padding-left: .5rem;
+}

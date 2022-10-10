@@ -10,5 +10,5 @@ express_transport = Transport.create!(name: 'Expresso', min_distance: 0, max_dis
 
 # Gestão de Frota
 v1 = Vehicle.create!(plate: 'AFR0K23', make: 'Fiat', model: 'Fiorino', year: 2007, max_load_capacity: 500, status: :available)
-v2 = Vehicle.create!(plate: 'EGR8J41', make: 'Renault', model: 'Master' year: 2010, max_load_capacity: 1000, status: :operating)
+v2 = Vehicle.create!(plate: 'EGR8J41', make: 'Renault', model: 'Master', year: 2010, max_load_capacity: 1000, status: :operating)
 v3 = Vehicle.create!(plate: 'PLA3S85', make: 'Scania', model: 'P410', year: 2004, max_load_capacity: 3000, status: :maintenance)

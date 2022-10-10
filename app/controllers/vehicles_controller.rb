@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_user, only: [:new, :create, :edit, :update]
-  before_action :set_vehicle, only: [:show, :edit, :update]
+  before_action :check_user, only: [:new, :create, :edit, :update, :available, :maintenance, :operating]
+  before_action :set_vehicle, only: [:show, :edit, :update, :available, :maintenance, :operating]
   
   def index
     @vehicles = Vehicle.all
@@ -26,7 +26,7 @@ class VehiclesController < ApplicationController
   end
 
   def edit
-  
+    @vehicles = Vehicle.all
   end
 
   def update
@@ -39,25 +39,38 @@ class VehiclesController < ApplicationController
     end
   end
 
-  
   def operating
     @vehicle.operating!
+    flash[:notice] = "Situação atual do veículo atualizada!"
+    redirect_to vehicle_url(@vehicle.id)
   end
 
   def maintenance
     @vehicle.maintenance!
+    flash[:notice] = "Situação atual do veículo atualizada!"
+    redirect_to vehicle_url(@vehicle.id)
   end
 
   def available
     @vehicle.available!
+    flash[:notice] = "Situação atual do veículo atualizada!"
+    redirect_to vehicle_url(@vehicle.id)
   end
 
-  
+  def search
+    @plate = params["query"]
+    if @plate.empty?
+      @plate = nil
+    else
+      @vehicles = Vehicle.where("plate LIKE ?","%#{@plate}%")
+    end
+  end
+
   private
 
   def check_user
     if current_user.admin? == false
-      return redirect_to vehicles_url, alert: "Você não tem acesso a esta área"
+      return redirect_to vehicles_url, alert: "Você não pode executar esta função."
     end
   end
 

@@ -17,11 +17,27 @@
       <%= Vehicle.human_attribute_name(:max_load_capacity) %>: <%= @vehicle.max_load_capacity %> 
     </li>
     <li>
-      <%= Vehicle.human_attribute_name(:status) %>: <%= I18n.translate(@vehicle.status) %>
+        <strong><%= Vehicle.human_attribute_name(:status) %>: <%= I18n.translate(@vehicle.status) %> </strong>
+      <%#=f.collection_radio_buttons :status, @vehicles.statuses, :second, :first%>
     </li>
   </ul>
 
-  <%= link_to 'Editar', edit_vehicle_url, class: "btn btn-bd-primary" %>
-  <%= link_to 'Voltar', vehicles_url, class: "btn btn-bd-primary" %> 
+
+  <div class='d-flex justify-content-start'> 
+    <% if @vehicle.available? %>
+      <%= button_to 'Veículo está em manutenção', maintenance_vehicle_url(@vehicle.id), class: "btn btn-bd-primary2"%>
+      <%= button_to 'Veículo está em operação', operating_vehicle_url(@vehicle.id), class: "btn btn-bd-primary2"%>
+        
+    <% elsif @vehicle.operating? %>
+      <%= button_to 'Veículo está em manutenção', maintenance_vehicle_url(@vehicle.id), class: "btn btn-bd-primary2"%>
+      <%= button_to 'Veículo está disponível', available_vehicle_url(@vehicle.id), class: "btn btn-bd-primary2"%>
+
+    <% else%>
+      <%= button_to 'Veículo está em operação', operating_vehicle_url(@vehicle.id), class: "btn btn-bd-primary2"%>
+      <%= button_to 'Veículo está disponível', available_vehicle_url(@vehicle.id), class: "btn btn-bd-primary2"%>
+    <% end %>
+    <%= link_to 'Editar', edit_vehicle_url, class: "btn btn-bd-primary" %>
+    <%= link_to 'Voltar', vehicles_url, class: "btn btn-bd-primary" %> 
+  </div>
 </section>
 

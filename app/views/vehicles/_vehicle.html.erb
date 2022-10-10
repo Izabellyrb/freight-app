@@ -1,0 +1,22 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"> <%= Vehicle.human_attribute_name(:plate) %> </th>
+      <th scope="col"> <%= Vehicle.human_attribute_name(:model) %></th>
+      <th scope="col"> <%= Vehicle.human_attribute_name(:max_load_capacity) %></th>
+      <th scope="col"> <%= Vehicle.human_attribute_name(:status) %></th>
+    </tr>
+  </thead>
+
+  <% @vehicles.each do |v| %>
+    <tbody>
+      <tr>
+        <td><%= link_to v.plate, v %> </td>
+        <td><%= v.model %> </td>
+        <td><%= v.max_load_capacity %> Kg </td>
+        <td><%= I18n.translate(v.status) %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

@@ -1,4 +1,12 @@
-<h2>Veículos cadastrados</h2>
+<main> 
+  <h2>Veículos cadastrados</h2>
+
+  <%= form_with(url: search_vehicles_url, method: :get) do |s| %>
+    <%= s.label :query, 'Busca de veículos' %>:
+    <%= s.text_field :query %>
+    <%= s.submit 'Buscar' %>
+  <% end %>
+</main>
 
 <section>
   <table class="table">
@@ -23,8 +31,9 @@
     <% end %>
   </table>
 
-
+ <% if user_signed_in? %>
   <%= link_to 'Cadastrar novo veículo', new_vehicle_url, class: "btn btn-bd-primary" %>
+ <% end %>
   <%= link_to 'Voltar', root_url, class: "btn btn-bd-primary" %> 
 </section>
 

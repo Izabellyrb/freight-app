@@ -2,14 +2,19 @@ pt-BR:
   available: 'Disponível'
   operating: 'Em operação'
   maintenance: 'Em manutenção'
+  query: 'Busca de veículos'
   activerecord:
     models:
-      vehicle: "Gestão de frota" 
+      vehicle: 
+        one: "Veículo"
+        other: "Veículos"
     attributes:
-      vehicle:
+      vehicle: 
         plate: 'Placa de identificação' 
         make: 'Marca' 
         model: 'Modelo'
         year: "Ano"
         max_load_capacity: "Capacidade máx de carga"
         status: "Situação atual"
+        vehicle: 'Veículo'
+
