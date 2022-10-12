@@ -2,9 +2,15 @@ pt-BR:
   activerecord:
     models:
       weight_price: "Preços por peso" 
+      distance_price: "Preços por distância"
     attributes:
       weight_price: 
         min_weight: 'Peso mínimo'
         max_weight: 'Peso máximo'
         value_km: 'Valor por km'
+      distance_price: 
+        min_distance: 'Distância mínima'
+        max_distance: 'Distância máxima'
+        value_km: 'Taxa fixa'
+        
 

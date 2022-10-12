@@ -10,7 +10,7 @@ describe 'Usuário edita preço por peso cadastrado na modalidade' do
     visit root_url
     click_on 'Modalidades de transporte'
     click_on 'Comum'
-    within ("#preços") do
+    within ("#preços_kg") do
       click_on 'Editar'
     end
 
@@ -27,7 +27,7 @@ describe 'Usuário edita preço por peso cadastrado na modalidade' do
     visit root_url
     click_on 'Modalidades de transporte'
     click_on 'Comum'
-    within ("#preços") do
+    within ("#preços_kg") do
       click_on 'Editar'
     end
     fill_in 'Peso mínimo', with: '101'
@@ -50,7 +50,7 @@ describe 'Usuário edita preço por peso cadastrado na modalidade' do
     visit root_url
     click_on 'Modalidades de transporte'
     click_on 'Comum'
-    within ("#preços") do
+    within ("#preços_kg") do
       click_on 'Editar'
     end
     fill_in 'Peso mínimo', with: ''

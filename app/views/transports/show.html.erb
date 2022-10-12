@@ -29,7 +29,7 @@
     </div>
 </section>
 
-<section id='preços'>
+<section id='preços_kg'>
   <h2>Preços por peso</h2>
     <table class="table">
       <thead>
@@ -51,6 +51,31 @@
     </table>
   <% if user_signed_in? %>
     <%= link_to 'Cadastrar novo preço', new_transport_weight_price_url(@transport.id), class: "btn btn-bd-primary" %>
+  <% end %>
+</section>
+
+<section id='preços_km'>
+  <h2>Preços por distância</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> Intervalo de distância (Km) </th>
+          <th scope="col"> Taxa fixa </th>
+          <th scope="col"> Configurações </th>
+        </tr>
+      </thead>
+      <% @transport.distance_price.each do |dp| %>
+        <tbody>
+          <tr>
+            <td><%= dp.min_distance%> - <%=dp.max_distance%> Km</td>
+            <td><%= number_to_currency(dp.value_km) %> </td>
+            <td><%= link_to 'Editar', edit_transport_distance_price_url(@transport.id, dp), class: "btn btn-bd-primary" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  <% if user_signed_in? %>
+    <%= link_to 'Cadastrar novo preço', new_transport_distance_price_url(@transport.id), class: "btn btn-bd-primary" %>
   <% end %>
 </section>
 

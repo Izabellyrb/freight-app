@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post 'disabled', on: :member
     post 'enabled', on: :member
     resources :weight_prices, only:[:new, :create, :edit, :update]
+    resources :distance_prices, only:[:new, :create, :edit, :update]
   end
   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update] do 
     member do 

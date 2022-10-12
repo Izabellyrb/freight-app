@@ -16,13 +16,25 @@ v4 = Vehicle.create!(plate: 'AOS1Q96', make: 'Scania', model: 'P410', year: 2004
 v4 = Vehicle.create!(plate: 'OLQ5S74', make: 'Volkswagen', model: 'Fox', year: 2003, max_load_capacity: 100, status: :available)
 
 # Preços por peso
-weight_price1 = WeightPrice.create!(min_weight: 0, max_weight: 30, value_km: 0.20, transport: light_transport)
-weight_price2 = WeightPrice.create!(min_weight: 31, max_weight: 60, value_km: 0.50, transport: light_transport)
+weight_price1 = WeightPrice.create!(min_weight: 0, max_weight: 50, value_km: 0.20, transport: light_transport)
+weight_price2 = WeightPrice.create!(min_weight: 51, max_weight: 80, value_km: 0.50, transport: light_transport)
 weight_price3 = WeightPrice.create!(min_weight: 81, max_weight: 100, value_km: 0.60, transport: regular_transport)
 weight_price4 = WeightPrice.create!(min_weight: 101, max_weight: 200, value_km: 0.90, transport: regular_transport)
 weight_price5 = WeightPrice.create!(min_weight: 201, max_weight: 500, value_km: 1.20, transport: heavy_transport)
-weight_price5 = WeightPrice.create!(min_weight: 501, max_weight: 700, value_km: 1.50, transport: heavy_transport)
-weight_price5 = WeightPrice.create!(min_weight: 701, max_weight: 1000, value_km: 1.90, transport: heavy_transport)
+weight_price6 = WeightPrice.create!(min_weight: 501, max_weight: 700, value_km: 1.50, transport: heavy_transport)
+weight_price7 = WeightPrice.create!(min_weight: 701, max_weight: 1000, value_km: 1.90, transport: heavy_transport)
+
+# Preços por distância
+distance_price1 = DistancePrice.create!(min_distance: 0, max_distance: 30, value_km: 5.00, transport: light_transport)
+distance_price2 = DistancePrice.create!(min_distance: 31, max_distance: 50, value_km: 7.00, transport: light_transport)
+distance_price3 = DistancePrice.create!(min_distance: 51, max_distance: 65, value_km: 9.00, transport: regular_transport)
+distance_price4 = DistancePrice.create!(min_distance: 66, max_distance: 80, value_km: 12.00, transport: regular_transport)
+distance_price5 = DistancePrice.create!(min_distance: 81, max_distance: 100, value_km: 15.00, transport: regular_transport)
+distance_price6 = DistancePrice.create!(min_distance: 101, max_distance: 160, value_km: 18.00, transport: heavy_transport)
+distance_price7 = DistancePrice.create!(min_distance: 161, max_distance: 200, value_km: 20.00, transport: heavy_transport)
+
+
+
 
 
 

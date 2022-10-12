@@ -5,6 +5,7 @@ describe 'Usuário vê os preços por peso' do
   
     visit root_url
     click_on 'Modalidades de transporte'
+
   
     expect(current_url).to eq(new_user_session_url)
   end
