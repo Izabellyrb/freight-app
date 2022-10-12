@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :transports, only: [:index, :show, :new, :create, :edit, :update] do
     post 'disabled', on: :member
     post 'enabled', on: :member
+    resources :weight_prices, only:[:new, :create, :edit, :update]
   end
   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update] do 
     member do 
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
     end
     get 'search', on: :collection
   end
+
 
 end

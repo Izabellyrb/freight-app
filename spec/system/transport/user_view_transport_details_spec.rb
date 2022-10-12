@@ -11,7 +11,7 @@ describe 'Usuário vê detalhes de uma modalidade de transporte' do
 
   it 'com sucesso' do
     user = User.create!(name: 'Camila Souza', email:'camila.souza@sistemadefrete.com.br', password: 'password') 
-    regular_transport = Transport.create!(name: 'Comum', min_distance: 0, max_distance: 800, min_weight: 0, max_weight: 1000, fee: 4)
+    regular_transport = Transport.create!(name: 'Comum', min_distance: 51, max_distance: 100, min_weight: 81, max_weight: 200, fee: 4, status: :enabled)
 
     login_as(user)
     visit root_url
@@ -20,12 +20,12 @@ describe 'Usuário vê detalhes de uma modalidade de transporte' do
 
     expect(page).to have_content 'Transporte Comum'
     expect(page).to have_content 'Distância atendida (Km) Pesos atendidos (Kg) Taxa fixa de entrega' #view em tabela
-    expect(page).to have_content '0 - 800 Km 0 - 1000 Kg R$ 4,00'
+    expect(page).to have_content '51 - 100 Km 81 - 200 Kg R$ 4,00'
   end
 
   it 'e volta para página de modalidades' do
     user = User.create!(name: 'Camila Souza', email:'camila.souza@sistemadefrete.com.br', password: 'password') 
-    regular_transport = Transport.create!(name: 'Comum', min_distance: 0, max_distance: 800, min_weight: 0, max_weight: 1000, fee: 4)
+    regular_transport = Transport.create!(name: 'Comum', min_distance: 51, max_distance: 100, min_weight: 81, max_weight: 200, fee: 4, status: :enabled)
 
     login_as(user)
     visit root_url

@@ -10,7 +10,7 @@ describe 'Usuário cadastra nova modalidade de transporte' do
     click_on 'Cadastrar nova modalidade'
 
     expect(current_url).to eq transports_url
-    expect(page).to have_content 'Você não tem acesso a esta área'
+    expect(page).to have_content 'Você não pode executar esta função'
 
   end
   it 'com sucesso' do

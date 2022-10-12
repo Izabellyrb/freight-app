@@ -1,33 +1,56 @@
-<h2>Transporte <%=@transport.name%></h2>
+<section> 
+  <h2>Transporte <%=@transport.name%></h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Distância atendida (Km)</th>
+          <th scope="col">Pesos atendidos (Kg)</th>
+          <th scope="col">Taxa fixa de entrega</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @transport.min_distance%> - <%=@transport.max_distance%> Km</td>
+          <td><%= @transport.min_weight%> - <%=@transport.max_weight%> Kg</td>
+          <td><%= number_to_currency(@transport.fee)%></td>
+          <td><%= I18n.translate(@transport.status)%></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class='d-flex justify-content-start'>
+      <% if @transport.enabled? %>
+        <%= button_to 'Desabilitar', disabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
+        <% else %>
+        <%= button_to 'Habilitar', enabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
+      <% end %>
+      <%= link_to 'Editar', edit_transport_url, class: "btn btn-bd-primary"%>
+      <%= link_to 'Voltar', transports_url, class: "btn btn-bd-primary"%>
+    </div>
+</section>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Distância atendida (Km)</th>
-      <th scope="col">Pesos atendidos (Kg)</th>
-      <th scope="col">Taxa fixa de entrega</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @transport.min_distance%> - <%=@transport.max_distance%> Km</td>
-      <td><%= @transport.min_weight%> - <%=@transport.max_weight%> Kg</td>
-      <td><%= number_to_currency(@transport.fee)%></td>
-      <td><%= I18n.translate(@transport.status)%></td>
-
-    </tr>
-  </tbody>
-</table>
-
-<div class='d-flex justify-content-start'>
-  <% if @transport.enabled? %>
-    <%= button_to 'Desabilitar', disabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
-    <% else %>
-    <%= button_to 'Habilitar', enabled_transport_url(@transport.id), class: "btn btn-bd-primary"%>
+<section id='preços'>
+  <h2>Preços por peso</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> Intervalo de peso (Kg) </th>
+          <th scope="col"> Valor por Km </th>
+          <th scope="col"> Configurações </th>
+        </tr>
+      </thead>
+      <% @transport.weight_price.each do |wp| %>
+        <tbody>
+          <tr>
+            <td><%= wp.min_weight%> - <%=wp.max_weight%> Kg</td>
+            <td><%= number_to_currency(wp.value_km) %> </td>
+            <td><%= link_to 'Editar', edit_transport_weight_price_url(@transport.id, wp), class: "btn btn-bd-primary" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  <% if user_signed_in? %>
+    <%= link_to 'Cadastrar novo preço', new_transport_weight_price_url(@transport.id), class: "btn btn-bd-primary" %>
   <% end %>
-
-  <%= link_to 'Editar', edit_transport_url, class: "btn btn-bd-primary"%>
-  <%= link_to 'Voltar', transports_url, class: "btn btn-bd-primary"%>
-</div>
+</section>
 

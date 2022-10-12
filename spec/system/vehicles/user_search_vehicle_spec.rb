@@ -21,8 +21,8 @@ describe 'Usuário busca veículo cadastrado através da placa de identificaçã
     fill_in 'Busca de veículos', with: first_vehicle.plate
     click_on 'Buscar'
 
-    expect(page).to have_content "Resultados da busca por: 'AFR0K23'"
-    expect(page).to have_content '1 pedido encontrado'
+    expect(page).to have_content "Resultado da busca por: 'AFR0K23'"
+    expect(page).to have_content '1 veículo encontrado'
     expect(page).to have_content 'Fiorino'
     expect(page).to have_content 'Disponível'
   end

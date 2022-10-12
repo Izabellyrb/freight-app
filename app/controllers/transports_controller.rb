@@ -1,7 +1,7 @@
 class TransportsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_transport, only: [:show, :edit, :update, :disabled, :enabled]
-  before_action :check_user, only: [:disabled, :enabled]
+  before_action :check_user, only: [:new, :create, :edit, :update, :disabled, :enabled]
   
   def index 
     @transports = Transport.all
@@ -11,11 +11,7 @@ class TransportsController < ApplicationController
   end
 
   def new
-    if current_user.admin?
-      @transport = Transport.new()
-    else
-      return redirect_to transports_url, alert: "Você não tem acesso a esta área"
-    end
+    @transport = Transport.new()
   end
 
   def create
@@ -30,11 +26,6 @@ class TransportsController < ApplicationController
   end
 
   def edit
-    if current_user.admin?
-      set_transport
-    else
-      return redirect_to transport_url(@transport.id), alert: "Você não tem acesso a esta área"
-    end
   end
 
   def update
@@ -57,6 +48,7 @@ class TransportsController < ApplicationController
     redirect_to @transport
   end
 
+  
   private
     def set_transport
         @transport = Transport.find(params[:id])
@@ -66,7 +58,7 @@ class TransportsController < ApplicationController
 	  end
     def check_user
       if current_user.admin? == false
-        return redirect_to transport_url(@transport.id), alert: "Você não pode executar esta função"
+        return redirect_to transports_url, alert: "Você não pode executar esta função"
       end
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_09_193840) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_10_231233) do
   create_table "transports", force: :cascade do |t|
     t.string "name"
     t.integer "min_distance"
@@ -48,4 +48,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_193840) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "weight_prices", force: :cascade do |t|
+    t.integer "min_weight"
+    t.integer "max_weight"
+    t.decimal "value_km"
+    t.integer "transport_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transport_id"], name: "index_weight_prices_on_transport_id"
+  end
+
+  add_foreign_key "weight_prices", "transports"
 end
