@@ -1,15 +1,15 @@
 <%# new e edit %> 
 
-<% if(@distance_price.errors.any?) %>
+<% if(@deadline.errors.any?) %>
     <p>Verifique os erros abaixo:</p>
     <ul> 
-        <% @distance_price.errors.full_messages.each do |msg| %> 
+        <% @deadline.errors.full_messages.each do |msg| %> 
             <li> <%= msg %> </li>
         <% end %>
     </ul>
 <% end %>
 
-<%= form_with(model: [@transport, @distance_price]) do |f| %>
+<%= form_with(model: [@transport, @deadline]) do |f| %>
   <div>
     <%= f.label :min_distance %>:
     <%= f.text_field :min_distance %>
@@ -19,8 +19,8 @@
     <%= f.text_field :max_distance %>
   </div>
   <div> 
-    <%= f.label :value_km %>:
-    <%= f.text_field :value_km %>
+    <%= f.label :time %>:
+    <%= f.text_field :time %> horas
   </div>
   <%= f.submit 'Salvar', class: "btn btn-bd-primary"%>
 <% end %>

@@ -33,6 +33,11 @@ distance_price5 = DistancePrice.create!(min_distance: 81, max_distance: 100, val
 distance_price6 = DistancePrice.create!(min_distance: 101, max_distance: 160, value_km: 18.00, transport: heavy_transport)
 distance_price7 = DistancePrice.create!(min_distance: 161, max_distance: 200, value_km: 20.00, transport: heavy_transport)
 
+# Prazos de entrega
+deadline1 = Deadline.create!(min_distance: 0, max_distance: 50, time: 24, transport: light_transport)
+deadline2 = Deadline.create!(min_distance: 51, max_distance: 100, time: 48, transport: regular_transport)
+deadline3 = Deadline.create!(min_distance: 101, max_distance: 150, time: 72, transport: heavy_transport)
+deadline4 = Deadline.create!(min_distance: 151, max_distance: 200, time: 96, transport: heavy_transport)
 
 
 

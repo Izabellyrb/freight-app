@@ -2,8 +2,26 @@ body {
   background-color: #E6D5B8;
 }
 
+header {
+  background-color: #E45826
+}
+
+header a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+}
+
+header a:hover {
+    color: #E6D5B8;
+}
+
 main {
   margin-bottom: 1rem;
+}
+
+h2 {
+  margin-top: 2rem
 }
 
 /* links */
@@ -25,9 +43,9 @@ a:hover {
   --bs-btn-border-radius: .3rem;
   --bs-btn-hover-bg: #913919;
   --bs-btn-hover-color: #ffffff;
-  --bs-btn-padding-y: .15rem;
+  --bs-btn-padding-y: .10rem;
   --bs-btn-padding-x: .5rem;
-  margin: .5rem
+  margin: .3rem
 }
 
 .btn-bd-primary2 {
@@ -43,13 +61,18 @@ a:hover {
   margin: .5rem
 }
 
+.btn.btn-link {
+  --bs-btn-padding-x: 0rem;
+  --bs-btn-padding-y: -1rem;
+  --bs-btn-color: #E6D5B8;
+}
+
 /* alinhamento de buttons */
 .d-flex.justify-content-start {
   text-align: center
 }
 
 /*alerts*/
-
 .warning {
   font-weight: 600;
   color: rgb(168, 130, 5);
@@ -57,3 +80,4 @@ a:hover {
   border-radius: .3rem;
   padding-left: .5rem;
 }
+

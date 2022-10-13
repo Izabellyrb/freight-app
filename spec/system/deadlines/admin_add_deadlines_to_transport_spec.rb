@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-  describe 'Usuário cadastra novo preço a modalidade' do
+  describe 'Usuário cadastra novo prazo de entrega a modalidade' do
     it 'somente se estiver autenticado como usuário admin' do
       user = User.create!(name: 'Fernando Barros', email: 'fernando.barros@sistemadefrete.com.br', password: '7891011', function: :regular_user)
       regular_transport = Transport.create!(name: 'Comum', min_distance: 51, max_distance: 100, min_weight: 81, max_weight: 200, fee: 4, status: :enabled)
@@ -9,9 +9,7 @@ require 'rails_helper'
       visit root_url
       click_on 'Modalidades de transporte'
       click_on 'Comum'
-      within ("#preços_km") do
-        click_on 'Cadastrar novo preço'
-      end
+      click_on 'Cadastrar novo prazo'
 
       expect(current_url).to eq transport_url(regular_transport.id)
       expect(page).to have_content 'Você não pode executar esta função.'
@@ -26,18 +24,17 @@ require 'rails_helper'
     visit root_url
     click_on 'Modalidades de transporte'
     click_on 'Comum'
-    within ("#preços_km") do
-      click_on 'Cadastrar novo preço'
-    end
-    fill_in 'Distância mínima', with: '51'
+    click_on 'Cadastrar novo prazo'
+
+    fill_in 'Distância mínima', with: '50'
     fill_in 'Distância máxima', with: '80'
-    fill_in 'Taxa fixa', with: 9.00
+    fill_in 'Prazo', with: 48
     click_on 'Salvar'
 
 		expect(current_url).to eq transport_url(regular_transport.id)
-    expect(page).to have_content 'Novo preço cadastrado com sucesso!'
-    expect(page).to have_content '51 - 80 Km'
-    expect(page).to have_content 'R$ 9'
+    expect(page).to have_content 'Novo prazo cadastrado com sucesso!'
+    expect(page).to have_content '50 - 80 Km'
+    expect(page).to have_content '48 horas'
   end
 
   it 'com dados incompletos' do 
@@ -48,17 +45,17 @@ require 'rails_helper'
     visit root_url
     click_on 'Modalidades de transporte'
     click_on 'Comum'
-    within ("#preços_km") do
-      click_on 'Cadastrar novo preço'
-    end
+    click_on 'Cadastrar novo prazo'
+
     fill_in 'Distância mínima', with: ''
     fill_in 'Distância máxima', with: ''
-    fill_in 'Taxa fixa', with: ''
+    fill_in 'Prazo', with: ''
     click_on 'Salvar'
 
-    expect(page).not_to have_content 'Novo preço cadastrado com sucesso!'
-    expect(page).to have_content "Preço não cadastrado!"
+    expect(page).not_to have_content 'Novo prazo cadastrado com sucesso!'
+    expect(page).to have_content "Prazo não cadastrado!"
     expect(page).to have_content "Distância mínima não pode ficar em branco"
     expect(page).to have_content "Distância máxima não pode ficar em branco"
+    expect(page).to have_content "Prazo não pode ficar em branco"
   end
 end

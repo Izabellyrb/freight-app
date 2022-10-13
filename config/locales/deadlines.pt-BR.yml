@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      deadline: "Preços por peso" 
+    attributes:
+      deadline: 
+        min_distance: 'Distância mínima'
+        max_distance: 'Distância máxima'
+        time: 'Prazo'
+        
+
