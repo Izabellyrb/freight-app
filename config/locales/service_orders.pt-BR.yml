@@ -5,6 +5,7 @@ pt-BR:
   activerecord:
     models:
       service_order: "Ordens de serviço"
+      start_service_order: "Iniciar ordem de serviço"
     attributes:
       service_order: 
           sender_address: 'Endereço do remetente'
@@ -17,4 +18,7 @@ pt-BR:
           order_code: 'Nº da OS'
           order_weight: 'Peso total'
           order_distance: 'Distância total'
+      start_service_order:
+          transport_id: 'Modalidade disponível:'
+          vehicle_id: 'Veículo disponível:'
 

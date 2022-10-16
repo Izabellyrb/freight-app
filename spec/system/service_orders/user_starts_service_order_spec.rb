@@ -44,6 +44,9 @@ describe 'Usuário inicia ordens de serviço' do
     expect(current_url).to eq service_order_url(service_order.id)
     expect(page).to have_content 'OS iniciada com sucesso!'
     expect(page).to have_content 'Comum'
+    expect(page).to have_content 'AFR0K23'
+    expect(page).to have_content 'Valor total: R$ 43,60'
+
   end
 
 end

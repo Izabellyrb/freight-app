@@ -1,0 +1,25 @@
+<section id='prazos'>
+  <h2>Prazo de entrega</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> Intervalo em Km </th>
+          <th scope="col"> Prazo </th>
+          <th scope="col"> Configurações </th>
+        </tr>
+      </thead>
+      <% @transport.deadlines.each do |d| %>
+        <tbody>
+          <tr>
+            <td><%= d.min_distance%> - <%=d.max_distance%> Km</td>
+            <td><%= d.time %> horas </td>
+            <td><%= link_to 'Editar', edit_transport_deadline_url(@transport.id, d), class: "btn btn-bd-primary" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  <% if user_signed_in? %>
+    <%= link_to 'Cadastrar novo prazo', new_transport_deadline_url(@transport.id), class: "btn btn-bd-primary" %>
+  <% end %>
+</section>
+

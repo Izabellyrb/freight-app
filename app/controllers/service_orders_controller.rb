@@ -31,7 +31,7 @@ class ServiceOrdersController < ApplicationController
 
   def check_user
     if current_user.admin? == false
-      return redirect_to transports_url, alert: "Você não pode executar esta função"
+      return redirect_to service_orders_url, alert: "Você não pode executar esta função"
     end
   end
 

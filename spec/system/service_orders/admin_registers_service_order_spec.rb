@@ -9,7 +9,7 @@ describe 'Usuário cadastra ordens de serviço' do
     click_on 'Ordens de serviço'
     click_on 'Cadastrar nova OS'
 
-    expect(current_url).to eq transports_url
+    expect(current_url).to eq service_orders_url
     expect(page).to have_content 'Você não pode executar esta função'
 
   end
@@ -32,7 +32,7 @@ describe 'Usuário cadastra ordens de serviço' do
     fill_in 'Distância total', with: '100'
     click_on 'Salvar'
 
-		expect(current_url).to eq(service_orders_url)
+		expect(current_url).to eq service_orders_url
     expect(page).to have_content 'Nova OS cadastrada com sucesso!'
     expect(page).to have_content 'ISLW5723549SC9A'
   end

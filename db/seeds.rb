@@ -43,7 +43,18 @@ deadline4 = Deadline.create!(min_distance: 151, max_distance: 200, time: 96, tra
 service_order = ServiceOrder.create!(sender_address: 'Av. 4 de Janeiro, 244', sender_name: 'Lojas X',  
   receiver_address: 'Rua 27 de Março, 877', receiver_name: 'João da Silva', 
   product_code: 'L4JG0', product_width: 6, product_height: 19, 
-  order_code: 'ISLW5723549SC9A', order_weight: 100, order_distance: 50, status: :pending)
+  order_code: 'ISLW5723549SC9A', order_weight: 10, order_distance: 40, status: :pending)
+
+service_order2 = ServiceOrder.create!(sender_address: 'Av. das Marias, 999', sender_name: 'WeW Comercio',  
+  receiver_address: 'Rua Maria do Véu, 1897', receiver_name: 'Fabiana Silva', 
+  product_code: 'LASD10', product_width: 154, product_height: 52, 
+  order_code: 'AS7S8523549SASD', order_weight: 100, order_distance: 60, status: :pending)
+
+service_order3 = ServiceOrder.create!(sender_address: 'Av. 4 de Janeiro, 244', sender_name: 'Lojas X',  
+  receiver_address: 'Rua 27 de Março, 877', receiver_name: 'João da Silva', 
+  product_code: 'L4JG0', product_width: 170, product_height: 59, 
+  order_code: 'BIW25S23549SF93', order_weight: 700, order_distance: 150, status: :pending)
+
 
 
 

@@ -2,11 +2,11 @@
 
 <%= form_with(model: [@service_order, @start_service_order]) do |f| %>
     <div> 
-      <%= f.label :transport_id, 'Modalidade disponível:' %>
+      <%= f.label :transport_id %>
       <%= f.collection_select :transport_id, @transport, :id, :name %> 
     </div>
     <div> 
-      <%= f.label :vehicle_id, 'Veículos disponíveis:' %>
+      <%= f.label :vehicle_id %>
       <%= f.collection_select :vehicle_id, @vehicle, :id, :model %> 
     </div>
 
@@ -14,4 +14,4 @@
   <%= f.submit 'Salvar', class: "btn btn-bd-primary"%>
   <%= link_to 'Voltar', @service_order, class: "btn btn-bd-primary" %>
 <% end %>
-<br>
+

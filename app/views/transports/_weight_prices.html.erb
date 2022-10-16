@@ -1,0 +1,27 @@
+<section id='preços_kg'>
+  <h2>Preços por peso</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> Intervalo de peso (Kg) </th>
+          <th scope="col"> Valor por Km </th>
+          <th scope="col"> Configurações </th>
+        </tr>
+      </thead>
+      <% @transport.weight_prices.each do |wp| %>
+        <tbody>
+          <tr>
+            <td><%= wp.min_weight%> - <%=wp.max_weight%> Kg</td>
+            <td><%= number_to_currency(wp.value_km) %> </td>
+            <td><%= link_to 'Editar', edit_transport_weight_price_url(@transport.id, wp), class: "btn btn-bd-primary" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  <% if user_signed_in? %>
+    <%= link_to 'Cadastrar novo preço', new_transport_weight_price_url(@transport.id), class: "btn btn-bd-primary" %>
+  <% end %>
+</section>
+
+
+
