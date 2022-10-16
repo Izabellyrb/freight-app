@@ -1,0 +1,59 @@
+<h2>Cadastrar nova Ordem de serviço</h2>
+
+<% if(@service_order.errors.any?) %>
+    <p>Verifique os erros abaixo:</p>
+    <ul> 
+        <% @service_order.errors.full_messages.each do |msg| %> 
+            <li> <%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with(model: @service_order) do |f| %>
+  <div> <b> Dados do remetente: </b>
+    <div> 
+      <%= f.label :sender_address %>:
+      <%= f.text_field :sender_address %>
+    </div>
+    <div> 
+      <%= f.label :sender_name %>:
+      <%= f.text_field :sender_name %>
+    </div>
+  </div>
+  <div> <b> Dados do destinatário: </b>
+    <div> 
+      <%= f.label :receiver_address %>:
+      <%= f.text_field :receiver_address %>
+    </div>
+    <div> 
+      <%= f.label :receiver_name %>:
+      <%= f.text_field :receiver_name %>
+    </div>
+  </div>
+  <div> <b> Dados do produto: </b>
+    <div> 
+      <%= f.label :product_code %>:
+      <%= f.text_field :product_code %>
+    </div>
+    <div> 
+      <%= f.label :product_width %>:
+      <%= f.number_field :product_width %> cm
+    </div>
+        <div> 
+      <%= f.label :product_height %>:
+      <%= f.number_field :product_height %> cm
+    </div>
+    <div> 
+      <%= f.label :order_weight %>:
+      <%= f.number_field :order_weight %> kg
+    </div>
+    <div> 
+      <%= f.label :order_distance %>:
+      <%= f.number_field :order_distance %> km
+    </div>
+  <%= f.submit 'Salvar', class: "btn btn-bd-primary"%>
+<% end %>
+
+<%= link_to 'Voltar', service_orders_url, class: "btn btn-bd-primary" %>
+
+

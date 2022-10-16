@@ -39,7 +39,11 @@ deadline2 = Deadline.create!(min_distance: 51, max_distance: 100, time: 48, tran
 deadline3 = Deadline.create!(min_distance: 101, max_distance: 150, time: 72, transport: heavy_transport)
 deadline4 = Deadline.create!(min_distance: 151, max_distance: 200, time: 96, transport: heavy_transport)
 
-
+# Ordens de serviço
+service_order = ServiceOrder.create!(sender_address: 'Av. 4 de Janeiro, 244', sender_name: 'Lojas X',  
+  receiver_address: 'Rua 27 de Março, 877', receiver_name: 'João da Silva', 
+  product_code: 'L4JG0', product_width: 6, product_height: 19, 
+  order_code: 'ISLW5723549SC9A', order_weight: 100, order_distance: 50, status: :pending)
 
 
 

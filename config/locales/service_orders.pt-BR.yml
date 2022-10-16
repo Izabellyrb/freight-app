@@ -1,0 +1,20 @@
+pt-BR:
+  pending: 'Pendente'
+  progress: 'Em andamento'
+  finished: 'Finalizada'
+  activerecord:
+    models:
+      service_order: "Ordens de serviço"
+    attributes:
+      service_order: 
+          sender_address: 'Endereço do remetente'
+          sender_name: 'Nome do remetente'
+          receiver_address: 'Endereço do destinatário'
+          receiver_name: 'Nome do destinatário'
+          product_code: 'Código do produto'
+          product_width: 'Comprimento do produto'
+          product_height: 'Altura do produto'
+          order_code: 'Nº da OS'
+          order_weight: 'Peso total'
+          order_distance: 'Distância total'
+

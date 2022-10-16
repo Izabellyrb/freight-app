@@ -4,6 +4,7 @@ class Transport < ApplicationRecord
   has_many :weight_price
   has_many :distance_price
   has_many :deadline
+  has_many :start_service_order
   
   enum status: { enabled: 0, disabled: 2}
 end

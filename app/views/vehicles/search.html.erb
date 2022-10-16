@@ -16,12 +16,12 @@
       <b><%=@vehicles.count%> <%=Vehicle.model_name.human(count: @vehicles.count).downcase%> 
           <%=I18n.translate(:found, count: @vehicles.count)%></b>
     </p>
-    <% @vehicles.each do |vehicle| %>
-        <%= render vehicle %>
-    <% end %>
+  <%= render 'vehicle'%>
+  
   <% else %>
     <p> Nenhum resultado encontrado </p>
   <% end %>
+
 </section>
 
 

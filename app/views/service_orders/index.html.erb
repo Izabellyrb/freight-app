@@ -1,0 +1,29 @@
+<h2>Ordens de serviço</h2>
+
+<section>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> <%= ServiceOrder.human_attribute_name(:order_code) %> </th>
+        <th scope="col"> <%= ServiceOrder.human_attribute_name(:order_weight) %> </th>
+        <th scope="col"> <%= ServiceOrder.human_attribute_name(:order_distance) %></th>
+        <th scope="col"> <%= ServiceOrder.human_attribute_name(:status) %></th>
+      </tr>
+    </thead>
+
+    <% @service_orders.each do |so| %>
+      <tbody>
+        <tr>
+          <td><%= link_to so.order_code, so%> </td>
+          <td><%= so.order_weight %> Kg</td>
+          <td><%= so.order_distance %> Km</td>
+          <td><%= I18n.translate(so.status) %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+
+  <%= link_to 'Voltar', root_url, class: "btn btn-bd-primary" %>
+  <%= link_to 'Cadastrar nova OS', new_service_order_url, class: "btn btn-bd-primary" %>
+</section>

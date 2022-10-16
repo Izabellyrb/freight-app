@@ -1,0 +1,8 @@
+<div>
+  <h5> Detalhes de transporte: </h5>
+    <ul>  
+      <% @service_order.start_service_order.each do |s| %>
+        <li> Modalidade de transporte: <%= s.transport.name %></li> 
+        <li> Placa do veículo: <%= s.vehicle.plate %></li>
+      <% end %>
+</div>

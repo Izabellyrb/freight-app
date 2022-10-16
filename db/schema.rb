@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_13_001906) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_172301) do
   create_table "deadlines", force: :cascade do |t|
     t.integer "min_distance"
     t.integer "max_distance"
@@ -29,6 +29,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_13_001906) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["transport_id"], name: "index_distance_prices_on_transport_id"
+  end
+
+  create_table "service_orders", force: :cascade do |t|
+    t.string "sender_address"
+    t.string "sender_name"
+    t.string "receiver_address"
+    t.string "receiver_name"
+    t.string "product_code"
+    t.integer "product_width"
+    t.integer "product_height"
+    t.string "order_code"
+    t.integer "order_weight"
+    t.integer "order_distance"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "start_service_orders", force: :cascade do |t|
+    t.integer "transport_id", null: false
+    t.integer "service_order_id", null: false
+    t.integer "vehicle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_order_id"], name: "index_start_service_orders_on_service_order_id"
+    t.index ["transport_id"], name: "index_start_service_orders_on_transport_id"
+    t.index ["vehicle_id"], name: "index_start_service_orders_on_vehicle_id"
   end
 
   create_table "transports", force: :cascade do |t|
@@ -80,5 +107,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_13_001906) do
 
   add_foreign_key "deadlines", "transports"
   add_foreign_key "distance_prices", "transports"
+  add_foreign_key "start_service_orders", "service_orders"
+  add_foreign_key "start_service_orders", "transports"
+  add_foreign_key "start_service_orders", "vehicles"
   add_foreign_key "weight_prices", "transports"
 end

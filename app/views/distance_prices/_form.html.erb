@@ -12,15 +12,15 @@
 <%= form_with(model: [@transport, @distance_price]) do |f| %>
   <div>
     <%= f.label :min_distance %>:
-    <%= f.text_field :min_distance %>
+    <%= f.number_field :min_distance %>
   </div>
   <div> 
     <%= f.label :max_distance %>:
-    <%= f.text_field :max_distance %>
+    <%= f.number_field :max_distance %>
   </div>
   <div> 
     <%= f.label :value_km %>:
-    <%= f.text_field :value_km %>
+    <%= f.number_field :value_km %>
   </div>
   <%= f.submit 'Salvar', class: "btn btn-bd-primary"%>
 <% end %>

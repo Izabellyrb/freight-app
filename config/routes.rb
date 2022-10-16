@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
     get 'search', on: :collection
   end
-
-
+  resources :service_orders, only: [:index, :new, :create, :show] do 
+    resources :start_service_orders, only: [:new, :create, :edit] 
+  end
 end
