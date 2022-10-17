@@ -1,0 +1,32 @@
+
+<section>
+  <h4>Resultado da busca por: <%=@order_code%> </h4>
+
+  <% if @service_order.present? %>
+    <section>
+      <h5> Dados do remetente: </h5>
+        <ul>
+          <li> <%= ServiceOrder.human_attribute_name(:sender_address) %>: <%=  @service_order.sender_address %> </li>
+          <li> <%= ServiceOrder.human_attribute_name(:sender_name) %>: <%=  @service_order.sender_name %> </li>
+        </ul>
+      <h5> Dados do destinatario: </h5>
+        <ul>
+          <li> <%= ServiceOrder.human_attribute_name(:receiver_address) %>: <%=  @service_order.receiver_address %> </li>
+          <li> <%= ServiceOrder.human_attribute_name(:receiver_name) %>: <%=  @service_order.receiver_name %> </li>
+        </ul>
+      <h5> Dados de entrega: </h5>
+        <ul>  
+          <% @service_order.start_service_order.each do |s| %>
+            <li> Veículo: <%= s.vehicle.model %> - <%= s.vehicle.plate %></li>
+            <li> Prazo: <%= s.transport.deadline(@service_order) %></li>
+          <% end %>
+        </ul>
+    </section>
+
+  <% else %>
+      <p> Nenhum resultado encontrado </p>
+  <% end %>
+
+  <%= link_to 'Voltar', root_url, class: "btn btn-bd-primary" %> 
+
+</section>

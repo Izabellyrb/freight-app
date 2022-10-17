@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
+
   resources :transports, only: [:index, :show, :new, :create, :edit, :update] do
     post 'disabled', on: :member
     post 'enabled', on: :member
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :service_orders, only: [:index, :new, :create, :show] do 
-    resources :start_service_orders, only: [:new, :create, :edit] 
+    resources :start_service_orders, only: [:new, :create] 
+    get 'search', on: :collection
   end
 end

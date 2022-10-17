@@ -1,5 +1,6 @@
 class ServiceOrdersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index, :new, :create, :show]
+
   before_action :check_user, only: [:new, :create, :edit, :update]
 
   def index
@@ -25,6 +26,15 @@ class ServiceOrdersController < ApplicationController
     @service_order = ServiceOrder.find(params[:id])
   end
 
+  
+  def search
+    @order_code = params["query"]
+    if @order_code.empty?
+      @order_code = nil
+    else
+      @service_order = ServiceOrder.find_by(order_code: @order_code)
+    end
+  end
 
   private
 
