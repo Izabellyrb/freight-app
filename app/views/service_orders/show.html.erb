@@ -22,17 +22,10 @@
 
   <% if @service_order.pending?%>
     <%= link_to 'Iniciar OS', new_service_order_start_service_order_url(@service_order.id), class: "btn btn-bd-primary" %>
-    <%# preço e prazo disponíveis %>
 
   <% elsif @service_order.progress? %>
     <%= render 'os'%>
-      <%# botão de encerrar OS>
-      <%# add campo de data de entrega%>
-      <%# status encerrado no prazo ou com atraso (automatico ou colocamos?) %>
-        <%# se for atrasado, indicar campo de motivo de atraso %>
-    <% else%>
-    <%# indicar status do veículo para disponivel%>
-    <%# campo de status os como Finalizado%>
+    
   <% end %>
  <%= link_to 'Voltar', service_orders_url, class: "btn btn-bd-primary" %>
 

@@ -10,7 +10,7 @@ class StartServiceOrder < ApplicationRecord
   def transport_available_for(set_service_order)
     options = []
     @transports.each do |t| 
-      if set_service_order.order_weight.between?(t.min_weight, t.max_weight) && set_service_order.order_distance.between?(t.min_distance, t.max_distance)
+      if set_service_order.order_weight.between?(t.min_weight, t.max_weight) && set_service_order.order_distance.between?(t.min_distance, t.max_distance) && set_service_order.status == 0
         options << t
       end
     end

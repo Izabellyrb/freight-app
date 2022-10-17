@@ -15,6 +15,7 @@ class StartServiceOrdersController < ApplicationController
     if @start_service_order.save()
       flash[:notice] = 'OS iniciada com sucesso!'
       @service_order.progress!
+      @start_service_order.vehicle.operating!
       redirect_to service_order_url(@service_order.id)
     else
       flash[:notice] = 'OS não iniciada'
@@ -25,15 +26,14 @@ class StartServiceOrdersController < ApplicationController
 
   private
 
-
   def transport_available_for(set_service_order)
     options = []
-    @transports.each do |t| 
+    @transports.where(status: :enabled).each do |t| 
       if @service_order.order_weight.between?(t.min_weight, t.max_weight) && @service_order.order_distance.between?(t.min_distance, t.max_distance)
         options << t
       end
     end
-    return options
+    return options 
   end
 
   def set_service_order

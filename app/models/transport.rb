@@ -12,13 +12,11 @@ class Transport < ApplicationRecord
   def set_service_order
     @service_order = ServiceOrder.find(params[:service_order_id])
   end
-  
+
   def weight_price(set_service_order)
     weight_prices.each do |wp|
       if set_service_order.order_weight.between?(wp.min_weight, wp.max_weight) 
         return wp.value_km * set_service_order.order_distance
-      else
-        return 'Não há prazo cadastrado'
       end
     end
   end
@@ -27,8 +25,6 @@ class Transport < ApplicationRecord
     distance_prices.each do |dp|
       if set_service_order.order_distance.between?(dp.min_distance, dp.max_distance)
         return dp.value_km
-      else
-        return 'Não há valor cadastrado'
       end
     end
   end

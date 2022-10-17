@@ -74,11 +74,11 @@ class VehiclesController < ApplicationController
     end
   end
 
-    def vehicle_params
-			params.require(:vehicle).permit(:plate, :make, :model, :year, :max_load_capacity) 
-	  end
+  def vehicle_params
+    params.require(:vehicle).permit(:plate, :make, :model, :year, :max_load_capacity) 
+  end
 
-    def set_vehicle
-      @vehicle = Vehicle.find(params[:id])
-    end
+  def set_vehicle
+    @vehicle = Vehicle.find(params[:id])
+  end
 end
