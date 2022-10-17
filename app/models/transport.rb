@@ -14,19 +14,21 @@ class Transport < ApplicationRecord
   end
 
   def weight_price(set_service_order)
-    weight_prices.each do |wp|
+    weight_price = weight_prices.find do |wp|
       if set_service_order.order_weight.between?(wp.min_weight, wp.max_weight) 
-        return wp.value_km * set_service_order.order_distance
+        wp
       end
     end
+    weight_price.value_km * set_service_order.order_distance
   end
 
   def distance_price(set_service_order)
-    distance_prices.each do |dp|
+    distance_price = distance_prices.find do |dp|
       if set_service_order.order_distance.between?(dp.min_distance, dp.max_distance)
-        return dp.value_km
+        dp
       end
     end
+    distance_price.value_km
   end
 
   def deadline(set_service_order)
@@ -38,5 +40,5 @@ class Transport < ApplicationRecord
       end
     end
   end
-
+ 
 end

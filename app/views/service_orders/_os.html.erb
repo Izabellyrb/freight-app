@@ -4,7 +4,7 @@
       <% @service_order.start_service_order.each do |s| %>
         <li> Modalidade de transporte: <%= s.transport.name %></li> 
         <li> Placa do veículo: <%= s.vehicle.plate %></li>
-        <li> Valor total: <%= number_to_currency(s.transport.weight_price(@service_order).to_s.to_d + s.transport.distance_price(@service_order).to_s.to_d + s.fee.to_s.to_d)%></li>
+        <li> Valor total: <%= number_to_currency(s.transport.weight_price(@service_order) + s.transport.distance_price(@service_order) + s.transport.fee)%></li>
         <li> Prazo: <%= s.transport.deadline(@service_order) %></li>
       <% end %>
     </ul>

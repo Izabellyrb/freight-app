@@ -16,7 +16,7 @@
       <li> <%= ServiceOrder.human_attribute_name(:product_code) %>: <%= @service_order.product_code %> </li>
       <li> Dimensões: <%= @service_order.product_width %> cm x <%= @service_order.product_height %> cm </li>
       <li> <%= ServiceOrder.human_attribute_name(:order_weight) %>: <%= @service_order.order_weight %> Kg </li>
-      <li> <%= ServiceOrder.human_attribute_name(:order_distance) %>: <%= @service_order.order_weight %> Km </li>
+      <li> <%= ServiceOrder.human_attribute_name(:order_distance) %>: <%= @service_order.order_distance %> Km </li>
       <li><strong><%= ServiceOrder.human_attribute_name(:status) %>: <%= I18n.translate(@service_order.status) %> </strong> </li>
     </ul>
 

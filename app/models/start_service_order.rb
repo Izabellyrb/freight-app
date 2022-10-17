@@ -17,12 +17,5 @@ class StartServiceOrder < ApplicationRecord
     return options
   end
 
-  def fee 
-    @transports = Transport.all
-    @transport = transport_available_for(service_order)
-    @transport.each do |t|
-      return t.fee
-    end
-  end
 
 end
