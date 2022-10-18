@@ -25,7 +25,10 @@
 
   <% elsif @service_order.progress? %>
     <%= render 'os'%>
-    
+      <%= button_to 'Encerrar OS', finished_service_order_url(@service_order.id), class: "btn btn-bd-primary2"%>
+  <% else %>
+    <%= render 'os'%>
+
   <% end %>
  <%= link_to 'Voltar', service_orders_url, class: "btn btn-bd-primary" %>
 

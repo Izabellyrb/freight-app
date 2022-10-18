@@ -36,6 +36,13 @@ class ServiceOrdersController < ApplicationController
     end
   end
 
+  def finished
+    @service_order = ServiceOrder.find(params[:id])
+    @service_order.finished!
+    flash[:notice] = "OS encerrada com sucesso!"
+    redirect_to service_order_url(@service_order.id) 
+  end
+
   private
 
 

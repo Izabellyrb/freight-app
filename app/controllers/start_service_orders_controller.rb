@@ -22,7 +22,7 @@ class StartServiceOrdersController < ApplicationController
       render 'new'
     end
   end
-  
+    
 
   private
 
