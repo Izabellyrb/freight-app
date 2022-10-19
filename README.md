@@ -24,6 +24,12 @@ No terminal, use `rails db:seed`
 #### Acompanhamento das tarefas do projeto
 https://github.com/users/Izabellyrb/projects/1
 
+OBS: Itens pendentes de melhoria:
+-  Veículo alocado deve ser atualizado automaticamente para o status "disponível" (atualmente a atualização de status é manual)
+-  Tabela com todas modalidades aptas a atender a OS e os prazos/valores. (Só indica no select as modalidades disponíveis, sem tabela)
+-  Horario de finalização não 'traduzido' para -03:00.
+-  Calculo de deadline não identificado pelo teste, mas pela view sim.
+
 
 <h4 align="center">
 :construction: Em processo...
