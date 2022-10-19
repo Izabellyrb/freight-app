@@ -1,6 +1,7 @@
 <h2>Detalhes da Ordem de Serviço <%= @service_order.order_code%></h2>
 <br>
 <section>
+
   <h5> Dados do remetente: </h5>
     <ul>
       <li> <%= ServiceOrder.human_attribute_name(:sender_address) %>: <%=  @service_order.sender_address %> </li>
@@ -25,11 +26,19 @@
 
   <% elsif @service_order.progress? %>
     <%= render 'os'%>
-      <%= button_to 'Encerrar OS', finished_service_order_url(@service_order.id), class: "btn btn-bd-primary2"%>
+    <% @service_order.start_service_order.each do |s| %>
+        <% if Time.now <= s.transport.deadline(@service_order) %>
+          <%= button_to 'Encerrar OS', finished_service_order_url(@service_order.id), class: "btn btn-bd-primary2" %>
+        <% else %>
+          <%= link_to 'Encerrar OS', new_service_order_end_service_order_url(@service_order.id), class: "btn btn-bd-primary" %>
+        <% end %>
+    <% end %>
   <% else %>
+  <div>
     <%= render 'os'%>
-
+    <%= render 'finished-info'%>
   <% end %>
+
  <%= link_to 'Voltar', service_orders_url, class: "btn btn-bd-primary" %>
 
 </section>

@@ -1,7 +1,7 @@
 class DeadlinesController < ApplicationController
   before_action :authenticate_user!
   before_action :check_user, only: [:new, :create, :edit, :update]
-  before_action :set_wprice, only: [:edit, :update]
+  before_action :set_dprice, only: [:edit, :update]
   before_action :set_transport, only: [:new, :create, :edit, :update]
 
 
@@ -51,7 +51,7 @@ class DeadlinesController < ApplicationController
     params.require(:deadline).permit(:min_distance, :max_distance, :time) 
   end
 
-  def set_wprice
+  def set_dprice
     @deadline = Deadline.find(params[:id])
   end
 

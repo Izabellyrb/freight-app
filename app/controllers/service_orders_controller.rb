@@ -26,6 +26,12 @@ class ServiceOrdersController < ApplicationController
     @service_order = ServiceOrder.find(params[:id])
   end
 
+  def finished
+    @service_order = ServiceOrder.find(params[:id])
+    @service_order.finished!
+    flash[:notice] = "Os finalizada em dia!"
+    redirect_to service_order_url(@service_order)
+  end
   
   def search
     @order_code = params["query"]
@@ -36,12 +42,6 @@ class ServiceOrdersController < ApplicationController
     end
   end
 
-  def finished
-    @service_order = ServiceOrder.find(params[:id])
-    @service_order.finished!
-    flash[:notice] = "OS encerrada com sucesso!"
-    redirect_to service_order_url(@service_order.id) 
-  end
 
   private
 

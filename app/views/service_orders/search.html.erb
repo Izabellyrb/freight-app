@@ -20,6 +20,13 @@
           <% @service_order.start_service_order.each do |s| %>
             <li> Veículo: <%= s.vehicle.model %> - <%= s.vehicle.plate %></li>
             <li> Prazo: <%= s.transport.deadline(@service_order) %></li>
+          <% if Time.now >= s.transport.deadline(@service_order) %>
+              <li> Entregue em: <%= I18n.localize(@service_order.updated_at, format: :short) %></li>
+              <li> Status de entrega: Em atraso </li>
+          <% else %>
+              <li> Entregue em: <%= I18n.localize(@service_order.updated_at, format: :short) %></li>
+              <li> Status de entrega: No prazo </li>
+          <% end %>
           <% end %>
         </ul>
     </section>

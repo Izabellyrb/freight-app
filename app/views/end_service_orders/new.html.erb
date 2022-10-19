@@ -1,0 +1,27 @@
+<h2>Finalizando a Ordem de Serviço <%= @service_order.order_code%> </h2>
+
+<% if(@end_service_order.errors.any?) %>
+    <p>Verifique os erros abaixo:</p>
+    <ul> 
+        <% @end_service_order.errors.full_messages.each do |msg| %> 
+            <li> <%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+  Resumo do encerramento:
+  <% @service_order.start_service_order.each do |s| %>
+    <% if Time.now >= s.transport.deadline(@service_order) %>
+      <li> Finalizando em: <%= I18n.localize(Time.now, format: :short) %></li>
+      <li> Status de entrega: Em atraso </li>
+      <%= form_with(model: [@service_order, @end_service_order]) do |f| %>
+      <div> 
+        <%= f.label :reason, 'Motivo do atraso' %>:
+        <br><%= f.text_area :reason %> 
+      </div>
+      <%= f.submit 'Salvar', class: "btn btn-bd-primary"%>
+    <% end %>
+  <% end %>
+  
+  <%= link_to 'Voltar', @service_order, class: "btn btn-bd-primary" %>
+<% end %>

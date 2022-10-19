@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   end
   resources :service_orders, only: [:index, :new, :create, :show] do 
     resources :start_service_orders, only: [:new, :create] 
-    get 'search', on: :collection
+    resources :end_service_orders, only: [:new, :create] 
     post 'finished', on: :member
+    get 'search', on: :collection
   end
 end

@@ -6,6 +6,7 @@ pt-BR:
     models:
       service_order: "Ordens de serviço"
       start_service_order: "Iniciar ordem de serviço"
+      end_service_order: "Finalizar ordem de serviço"
     attributes:
       service_order: 
           sender_address: 'Endereço do remetente'
@@ -21,4 +22,6 @@ pt-BR:
       start_service_order:
           transport_id: 'Modalidade disponível:'
           vehicle_id: 'Veículo disponível:'
+      end_service_order:
+          reason: 'Motivo do atraso:'
 

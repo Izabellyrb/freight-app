@@ -1,0 +1,13 @@
+<h5> Detalhes de entrega: </h5>  
+
+  <% @service_order.start_service_order.each do |s| %>
+    <% if Time.now >= s.transport.deadline(@service_order) %>
+        <li> Entregue em: <%= I18n.localize(@service_order.updated_at, format: :short) %></li>
+        <li> Status de entrega: Em atraso </li>
+    <% else %>
+        <li> Entregue em: <%= I18n.localize(@service_order.updated_at, format: :short) %></li>
+        <li> Status de entrega: No prazo </li>
+    <% end %>
+  <% end %>
+
+
