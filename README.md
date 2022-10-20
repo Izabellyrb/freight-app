@@ -21,9 +21,14 @@ Para o CSS: <br>
 No terminal, use `rails db:seed`
 <br>
 
+#### Fazendo login
+Login admin - email: camila.souza@sistemadefrete.com.br, senha: 123456
+Login usuário regular - email: fernando.barros@sistemadefrete.com.br, senha: 7891011
+<br>
+
 #### Acompanhamento das tarefas do projeto
 https://github.com/users/Izabellyrb/projects/1
-
+<br>
 OBS: Itens pendentes de melhoria:
 -  Veículo alocado deve ser atualizado automaticamente para o status "disponível" (atualmente a atualização de status é manual)
 -  Tabela com todas modalidades aptas a atender a OS e os prazos/valores. (Só indica no select as modalidades disponíveis, sem tabela)

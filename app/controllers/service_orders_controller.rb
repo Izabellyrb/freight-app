@@ -41,7 +41,7 @@ class ServiceOrdersController < ApplicationController
       @service_order = ServiceOrder.find_by(order_code: @order_code)
     end
   end
-
+  
 
   private
 

@@ -35,8 +35,6 @@ class Transport < ApplicationRecord
     deadlines.each do |d|
       if set_service_order.order_distance.between?(d.min_distance, d.max_distance)
         return I18n.localize((set_service_order.updated_at + d.time * 3600), format: :short)
-      else
-        return 'Não há valor cadastrado'
       end
     end
   end

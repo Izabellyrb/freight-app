@@ -47,7 +47,6 @@ class TransportsController < ApplicationController
     @transport.enabled!
     redirect_to @transport
   end
-
   
   private
     def set_transport
