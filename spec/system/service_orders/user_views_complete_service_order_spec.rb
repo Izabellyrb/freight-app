@@ -33,6 +33,7 @@ describe 'Usuário vê a ordens de serviço' do
     vehicle = Vehicle.create!(plate: 'AFR0K23', make: 'Fiat', model: 'Fiorino', year: 2007, max_load_capacity: 500, status: :available)
     distance_price = DistancePrice.create!(min_distance: 0, max_distance: 1000, value_km: 5.00, transport: regular_transport)
     weight_price = WeightPrice.create!(min_weight: 0, max_weight: 1000, value_km: 0.60, transport: regular_transport)
+    deadline = Deadline.create!(min_distance: 0, max_distance: 1000, time: 48, transport: regular_transport)
    
     
     StartServiceOrder.create!(transport: regular_transport, service_order: service_order, vehicle: vehicle)

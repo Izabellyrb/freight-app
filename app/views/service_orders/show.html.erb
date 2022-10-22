@@ -7,7 +7,7 @@
       <li> <%= ServiceOrder.human_attribute_name(:sender_address) %>: <%=  @service_order.sender_address %> </li>
       <li> <%= ServiceOrder.human_attribute_name(:sender_name) %>: <%=  @service_order.sender_name %> </li>
     </ul>
-  <h5> Dados do destinatario: </h5>
+  <h5> Dados do destinatário: </h5>
     <ul>
       <li> <%= ServiceOrder.human_attribute_name(:receiver_address) %>: <%=  @service_order.receiver_address %> </li>
       <li> <%= ServiceOrder.human_attribute_name(:receiver_name) %>: <%=  @service_order.receiver_name %> </li>
@@ -28,7 +28,7 @@
     <%= render 'os'%>
     <% @service_order.start_service_order.each do |s| %>
         <% if Time.now <= s.transport.deadline(@service_order) %>
-            <%= button_to 'Encerrar OS', finished_service_order_url(@service_order.id), class: "btn btn-bd-primary2" %>
+            <%= button_to 'Encerrar OS', finished_service_order_url(@service_order.id), class: "btn btn-bd-primary" %>
         <% else %>
           <%= link_to 'Encerrar OS', new_service_order_end_service_order_url(@service_order.id), class: "btn btn-bd-primary" %>
         <% end %>

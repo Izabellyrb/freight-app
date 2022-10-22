@@ -52,9 +52,16 @@ service_order2 = ServiceOrder.create!(sender_address: 'Av. das Marias, 999', sen
 
 service_order3 = ServiceOrder.create!(sender_address: 'Av. 4 de Janeiro, 244', sender_name: 'Lojas X',  
   receiver_address: 'Rua 27 de Março, 877', receiver_name: 'João da Silva', 
-  product_code: 'L4JG0', product_width: 170, product_height: 59, 
+  product_code: 'L5GDSD', product_width: 170, product_height: 59, 
   order_code: 'BIW25S23549SF93', order_weight: 700, order_distance: 150, status: :pending)
 
+service_order4 = ServiceOrder.create!(sender_address: 'Av. Sitio Novo, 200', sender_name: 'A Era da Voz',  
+  receiver_address: 'Av. Aracati, 888', receiver_name: 'Maicon Santos', 
+  product_code: 'ASD8G2', product_width: 254, product_height: 100, 
+  order_code: 'IWS25C235D9YF38', order_weight: 600, order_distance: 140, status: :finished)
+start_service_order = StartServiceOrder.create!(transport: heavy_transport, vehicle: v4, service_order: service_order4)
+
+  
 
 
 

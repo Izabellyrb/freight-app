@@ -29,7 +29,7 @@ class StartServiceOrdersController < ApplicationController
   def transport_available_for(set_service_order)
     options = []
     @transports.where(status: :enabled).each do |t| 
-      if @service_order.order_weight.between?(t.min_weight, t.max_weight) && @service_order.order_distance.between?(t.min_distance, t.max_distance)
+      if set_service_order.order_weight.between?(t.min_weight, t.max_weight) && set_service_order.order_distance.between?(t.min_distance, t.max_distance)
         options << t
       end
     end

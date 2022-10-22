@@ -30,10 +30,9 @@ Login usuário regular - email: fernando.barros@sistemadefrete.com.br, senha: 78
 https://github.com/users/Izabellyrb/projects/1
 <br>
 OBS: Itens pendentes de melhoria:
--  Veículo alocado deve ser atualizado automaticamente para o status "disponível" (atualmente a atualização de status é manual)
--  Tabela com todas modalidades aptas a atender a OS e os prazos/valores. (Só indica no select as modalidades disponíveis, sem tabela)
+-  Ao finalizar OS, veículo alocado deve ser atualizado automaticamente para o status "disponível" (atualmente a atualização de status é manual)
+-  Ao iniciar OS, tabela com todas modalidades aptas a atender e os prazos/valores. (Só indica no select as modalidades disponíveis, tabela no menu 'Modalidades de transporte')
 -  Horario de finalização não 'traduzido' para -03:00.
--  Calculo de deadline não identificado pelo teste, mas pela view sim.
 
 
 <h4 align="center">

@@ -4,6 +4,9 @@
     <% if Time.now >= s.transport.deadline(@service_order) %>
         <li> Entregue em: <%= I18n.localize(@service_order.updated_at, format: :short) %></li>
         <li> Status de entrega: Em atraso </li>
+        <% @service_order.end_service_order.each do |e| %>
+          <li> Motivo: <%= e.reason %></li>
+        <% end %>
     <% else %>
         <li> Entregue em: <%= I18n.localize(@service_order.updated_at, format: :short) %></li>
         <li> Status de entrega: No prazo </li>

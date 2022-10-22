@@ -32,11 +32,12 @@ class Transport < ApplicationRecord
   end
 
   def deadline(set_service_order)
-    deadlines.each do |d|
+    deadline = deadlines.find do |d|
       if set_service_order.order_distance.between?(d.min_distance, d.max_distance)
-        return I18n.localize((set_service_order.updated_at + d.time * 3600), format: :short)
+        d
       end
     end
-  end
- 
+    I18n.localize((set_service_order.updated_at + deadline.time * 3600), format: :short)
+  end 
+
 end

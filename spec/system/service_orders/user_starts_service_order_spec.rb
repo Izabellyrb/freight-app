@@ -33,6 +33,7 @@ describe 'Usuário inicia ordens de serviço' do
     regular_transport = Transport.create!(name: 'Comum', min_distance: 50, max_distance: 100, min_weight: 81, max_weight: 200, fee: 4, status: :enabled)
     distance_price = DistancePrice.create!(min_distance: 0, max_distance: 1000, value_km: 5.00, transport: regular_transport)
     weight_price = WeightPrice.create!(min_weight: 0, max_weight: 1000, value_km: 0.60, transport: regular_transport)
+    deadline = Deadline.create!(min_distance: 0, max_distance: 1000, time: 48, transport: regular_transport)
     vehicle = Vehicle.create!(plate: 'AFR0K23', make: 'Fiat', model: 'Fiorino', year: 2007, max_load_capacity: 500, status: :available)
                                         
     login_as(user)
