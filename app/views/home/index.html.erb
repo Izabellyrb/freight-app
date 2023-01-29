@@ -1,9 +1,14 @@
-<h2> Rastreamento de entregas </h2>
+<section class= "text-center"> 
+  <h2> Rastreamento de entregas </h2>
 
-<%= form_with(url: search_service_orders_url, method: :get) do |f| %>
-  <%= f.label :query, 'Código de rastreamento' %>:
-  <%= f.text_field :query %>
-  <%= f.submit 'Buscar'%>
-<% end %>
+  <div>
+    <%= form_with(url: search_service_orders_url, method: :get) do |f| %>
+      <%= f.label :query, 'Código de rastreamento' %>:
+      <%= f.text_field :query %>
+      <%= f.submit 'Buscar' %>
+    <% end %>
+  </div>
 
+  <%= image_tag("/delivery_search.png", :alt => "busca de entregas", width: 500) %>
+</section>
 
