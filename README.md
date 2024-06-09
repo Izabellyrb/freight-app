@@ -59,8 +59,3 @@ Board com as tasks: https://github.com/users/Izabellyrb/projects/1
 - [ ]  Ao finalizar OS, veículo alocado deve ser atualizado automaticamente para o status "disponível" (atualmente a atualização de status é manual)
 - [ ] Ao iniciar OS, tabela com todas modalidades aptas a atender e os prazos/valores. (Só indica no select as modalidades disponíveis, tabela no menu 'Modalidades de transporte')
 - [ ] Horario de finalização não 'traduzido' para -03:00.
-
-
-<h4 align="center">
-:construction: Em processo...
-</h4>
